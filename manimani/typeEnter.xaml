@@ -1,0 +1,17 @@
+﻿<Window x:Class="manimani.typeEnter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:manimani"
+        mc:Ignorable="d"
+        Title="typeEnter" Height="100" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="addType" Grid.Row="1" Content="добавить тип" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="addType_Click"/>
+        <TextBox x:Name="typeBox" HorizontalAlignment="Stretch" Text="" VerticalAlignment="Stretch"/>
+    </Grid>
+</Window>

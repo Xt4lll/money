@@ -1,0 +1,39 @@
+﻿<Window x:Class="manimani.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:manimani"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <DatePicker Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <DataGrid x:Name="grid" Grid.RowSpan="5" Grid.Row="1" Loaded="DataGrid_Loaded"/>
+        <Label Grid.Column="1" Content="Имя записи" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameOfNote" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Bottom"/>
+        <Label x:Name="typeOfNote" Grid.Column="1" Content="Тип записи" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Top"/>
+        <ComboBox x:Name="types" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Bottom"/>
+        <Button Grid.Column="1" Content="Добавить тип" HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch" Click="Button_Click"/>
+        <Label Grid.Column="1" Content="Сумма денег" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Top"/>
+        <TextBox x:Name="money" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Bottom"/>
+        <Button Grid.Column="1" Content="Добавить запись" HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Bottom"/>
+        <Button x:Name="addNote" Grid.Column="1" Content="Добавить запись" HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Bottom" Click="addNote_Click"/>
+        <Button x:Name="change" Grid.Column="1" Content="Изменить" HorizontalAlignment="Stretch" Grid.Row="6" VerticalAlignment="Stretch"/>
+        <Button x:Name="delete" Grid.Column="1" Content="Удалить запись" HorizontalAlignment="Stretch" Grid.Row="7" VerticalAlignment="Stretch" Click="delete_Click"/>
+        <Label Content="Итог: " HorizontalAlignment="Stretch" Grid.Row="6" Grid.RowSpan="2" VerticalAlignment="Center"/>
+    </Grid>
+</Window>
