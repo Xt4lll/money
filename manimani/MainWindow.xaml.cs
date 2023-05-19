@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -20,14 +22,17 @@ namespace manimani
 {
     public partial class MainWindow : Window
     {
+        private ObservableCollection<notes> table = new ObservableCollection<notes>();
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            List<notes> table = new List<notes>();
+            table.Add(new notes("sdfsd", "sada", "asda", false));
+            grid.ItemsSource = null;
             grid.ItemsSource = table;
         }
 
@@ -51,12 +56,11 @@ namespace manimani
 
         private void addNote_Click(object sender, RoutedEventArgs e)
         {
-            List<notes> table = new List<notes>();
 
             if (nameOfNote.Text != "" && types.SelectedItem != null && money.Text != "")
             {
-                table.Add(new notes(nameOfNote.Text.ToString(), types.SelectedItem.ToString(), money.Text.ToString(), false));
-
+                notes note = new notes(nameOfNote.Text.ToString(), types.SelectedItem.ToString(), money.Text.ToString(), false);
+                table.Add(note);
                 grid.ItemsSource = null;
                 grid.ItemsSource = table;
             }
@@ -70,8 +74,21 @@ namespace manimani
                 items.Add(item.ToString());
             }
             items.RemoveAt(grid.SelectedIndex);
+            table.RemoveAt(grid.SelectedIndex);
             grid.ItemsSource = null;
             grid.ItemsSource = items;
+        }
+
+        private void grid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (grid.SelectedItem != null)
+            {
+                notes item = grid.SelectedItem as notes;
+
+                nameOfNote.Text = item.name;
+                types.Text = item.type;
+                money.Text = item.money;
+            }
         }
     }
 }

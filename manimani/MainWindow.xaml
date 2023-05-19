@@ -22,7 +22,8 @@
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
         <DatePicker Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <DataGrid x:Name="grid" Grid.RowSpan="5" Grid.Row="1" Loaded="DataGrid_Loaded"/>
+        <DataGrid 
+            x:Name="grid" Grid.RowSpan="5" Grid.Row="1" Loaded="DataGrid_Loaded" SelectionChanged="grid_SelectionChanged"/>
         <Label Grid.Column="1" Content="Имя записи" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Top"/>
         <TextBox x:Name="nameOfNote" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Bottom"/>
         <Label x:Name="typeOfNote" Grid.Column="1" Content="Тип записи" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Top"/>
